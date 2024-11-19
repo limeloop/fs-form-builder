@@ -1,21 +1,17 @@
 {
-  "name": "page-form",
-  "version": "0.1.0",
-  "author": "David Fox",
+  "name": "limeloop-react-form",
+  "main": "app/index.ts",
+  "version": "1.0.0",
+  "author": "Limeloop",
+  "description": "A drag and drop form builder",
+  "git repository": "https://github.com/limeloop/fs-form-builder",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "postinstall": "prisma generate"
-
+    "build": "tsc"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.23.5",
     "@dnd-kit/core": "^6.0.8",
     "@hookform/resolvers": "^3.3.1",
-    "@prisma/client": "^5.3.1",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.4",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
@@ -43,9 +39,7 @@
     "@radix-ui/react-toast": "^1.1.4",
     "@radix-ui/react-toggle": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.6",
-    "@types/node": "20.6.2",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.7",
+    "@types/node": "^22.9.0",
     "autoprefixer": "10.4.15",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
@@ -53,26 +47,28 @@
     "date-fns": "^2.30.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
-    "next": "^13.5.6",
     "next-themes": "^0.2.1",
-    "nextjs-toploader": "^1.4.2",
     "postcss": "8.4.29",
     "prettier": "^3.0.3",
-    "react": "18.2.0",
+    "process": "^0.11.10",
     "react-confetti": "^6.1.0",
     "react-day-picker": "^8.8.2",
-    "react-dom": "18.2.0",
     "react-hook-form": "^7.46.1",
     "react-icons": "^4.11.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.22.2"
+    "zod": "^3.23.8"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "eslint-plugin-unused-imports": "^3.0.0",
-    "prisma": "^5.15.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
+    "typescript": "^5.0.3"
   }
 }

@@ -4,14 +4,20 @@ import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 
-import { cn } from "@/lib/utils";
+import { cn } from '../../lib/utils';
 
 const Dialog = DialogPrimitive.Root;
 
 const DialogTrigger = DialogPrimitive.Trigger;
 
-const DialogPortal = ({ className, ...props }: DialogPrimitive.DialogPortalProps) => (
-  <DialogPrimitive.Portal className={cn(className)} {...props} />
+interface DialogPortalProps extends DialogPrimitive.DialogPortalProps {
+  className?: string;
+}
+
+const DialogPortal = ({ className, ...props }: DialogPortalProps) => (
+  <div className={cn(className)}>
+    <DialogPrimitive.Portal {...props} />
+  </div>
 );
 DialogPortal.displayName = DialogPrimitive.Portal.displayName;
 

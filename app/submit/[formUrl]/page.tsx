@@ -1,4 +1,3 @@
-import { GetFormContentByUrl } from "@/actions/form";
 import { FormElementInstance } from "@/components/FormElements";
 import FormSubmitComponent from "@/components/FormSubmitComponent";
 import React from "react";
@@ -10,7 +9,8 @@ async function SubmitPage({
     formUrl: string;
   };
 }) {
-  const form = await GetFormContentByUrl(params.formUrl);
+  // const form = await GetFormContentByUrl(params.formUrl);
+  const form = {content: ""}
 
   if (!form) {
     throw new Error("form not found");

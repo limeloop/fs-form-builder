@@ -1,5 +1,3 @@
-import { PublishForm } from "@/actions/form";
-import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { MdOutlinePublish } from "react-icons/md";
@@ -19,16 +17,16 @@ import { toast } from "./ui/use-toast";
 
 function PublishFormBtn({ id }: { id: number }) {
   const [loading, startTransition] = useTransition();
-  const router = useRouter();
+  // const router = useRouter();
 
-  async function publishForm() {
+  function publishForm() {
     try {
-      await PublishForm(id);
+      // await PublishForm(id);
       toast({
         title: "Success",
         description: "Your form is now available to the public",
       });
-      router.refresh();
+      // router.refresh();
     } catch (error) {
       toast({
         title: "Error",

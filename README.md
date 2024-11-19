@@ -1,8 +1,8 @@
-# Full Stack Form Builder
+# Limeloop Form Builder
 
 ## Overview
 
-This project is a Full Stack Form Builder application designed to create, manage, and publish forms using modern web technologies. It leverages React with TypeScript for the frontend, Dnd-Kit for drag-and-drop functionality, Vercel PostgreSQL with Prisma for the database, and Tailwind CSS for styling.
+Package to create forms by drag and dropping elements. Started from [this project](https://github.com/maesterfox/fs-form-builder).
 
 ## Features
 
@@ -28,68 +28,41 @@ This project is a Full Stack Form Builder application designed to create, manage
 ### Prerequisites
 
 - Node.js (version 14.x or higher)
-- PostgreSQL
-- npm or yarn
+- yarn
 
 ### Installation
 
 1. **Clone the repository:**
    ```sh
    git clone https://github.com/maesterfox/fs-form-builder.git
-   cd full-stack-form-builder
    ```
 
 2. **Install dependencies:**
    ```sh
-   npm install
-   # or
    yarn install
    ```
 
-3. **Set up the database:**
-   Ensure PostgreSQL is running and create a database. Update the Prisma configuration with your database credentials.
+### Development
 
-4. **Generate Prisma client:**
+1. **Link a development package from root:**
    ```sh
-   npx prisma generate
+   yarn link
    ```
 
-5. **Run database migrations:**
+2. **Go to the consuming app where you will use the package and link the package there with:**
    ```sh
-   npx prisma migrate dev --name init
+   yarn link limeloop-react-form
    ```
 
-### Running the Application
-
-1. **Development server:**
+3. **Start server of the consuming app:**
    ```sh
-   npm run dev
-   # or
-   yarn dev
-   ```
-   The application will be available at `http://localhost:3000`.
-
-2. **Build for production:**
-   ```sh
-   npm run build
-   # or
-   yarn build
-   ```
-
-3. **Start the production server:**
-   ```sh
-   npm start
-   # or
    yarn start
    ```
+4. **Every time you make changes you will see them on the consuming app.**
 
 ### Scripts
 
-- `dev`: Starts the development server.
 - `build`: Builds the application for production.
-- `start`: Starts the production server.
-- `lint`: Runs ESLint for code linting.
-- `postinstall`: Generates the Prisma client.
 
 ## Project Structure
 
@@ -104,21 +77,4 @@ This project is a Full Stack Form Builder application designed to create, manage
 - **`package.json`**: Project dependencies and scripts
 - **`tsconfig.json`**: TypeScript configuration
 - **`tailwind.config.js`**: Tailwind CSS configuration
-- **`prisma/schema.prisma`**: Prisma schema definition
 - **`next.config.js`**: Next.js configuration
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request for review.
-
-## License
-
-This project is licensed under the MIT License.
-
-## Contact
-
-For any questions or feedback, please reach out to [david.fox@davidfoxdev.co.uk].
-
----
-
-This README provides a comprehensive guide to set up, run, and contribute to the Full Stack Form Builder project. It covers the essential aspects needed to understand and work with the project effectively.

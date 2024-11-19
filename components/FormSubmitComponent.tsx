@@ -6,7 +6,6 @@ import { Button } from "./ui/button";
 import { HiCursorClick } from "react-icons/hi";
 import { toast } from "./ui/use-toast";
 import { ImSpinner2 } from "react-icons/im";
-import { SubmitForm } from "@/actions/form";
 
 function FormSubmitComponent({ formUrl, content }: { content: FormElementInstance[]; formUrl: string }) {
   const formValues = useRef<{ [key: string]: string }>({});
@@ -52,7 +51,7 @@ function FormSubmitComponent({ formUrl, content }: { content: FormElementInstanc
 
     try {
       const jsonContent = JSON.stringify(formValues.current);
-      await SubmitForm(formUrl, jsonContent);
+      // await SubmitForm(formUrl, jsonContent);
       setSubmitted(true);
     } catch (error) {
       toast({
@@ -75,39 +74,36 @@ function FormSubmitComponent({ formUrl, content }: { content: FormElementInstanc
   }
 
   return (
-    <div className="flex justify-center w-full h-full items-center p-8">
-      <div
-        key={renderKey}
-        className="max-w-[620px] flex flex-col gap-4 flex-grow bg-background w-full p-8 overflow-y-auto border shadow-xl shadow-blue-700 rounded"
+    <div>
+      {content.map((element) => {
+        const FormElement = FormElements[element.type].formComponent;
+        return (
+          <FormElement
+            key={element.id}
+            elementInstance={element}
+            submitValue={submitValue}
+            isInvalid={formErrors.current[element.id]}
+            defaultValue={formValues.current[element.id]}
+          />
+        );
+      })}
+      <Button
+        className="mt-8"
+        onClick={() => {
+          startTransition(() => {
+            submitForm();
+          });
+        }}
+        disabled={pending}
       >
-        {content.map((element) => {
-          const FormElement = FormElements[element.type].formComponent;
-          return (
-            <FormElement
-              key={element.id}
-              elementInstance={element}
-              submitValue={submitValue}
-              isInvalid={formErrors.current[element.id]}
-              defaultValue={formValues.current[element.id]}
-            />
-          );
-        })}
-        <Button
-          className="mt-8"
-          onClick={() => {
-            startTransition(submitForm);
-          }}
-          disabled={pending}
-        >
-          {!pending && (
-            <>
-              <HiCursorClick className="mr-2" />
-              Submit
-            </>
-          )}
-          {pending && <ImSpinner2 className="animate-spin" />}
-        </Button>
-      </div>
+        {!pending && (
+          <>
+            <HiCursorClick className="mr-2" />
+            Submit
+          </>
+        )}
+        {pending && <ImSpinner2 className="animate-spin" />}
+      </Button>
     </div>
   );
 }

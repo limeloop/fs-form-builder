@@ -5,7 +5,7 @@ import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
+import { cn } from '../../lib/utils';
 
 const Sheet = SheetPrimitive.Root;
 
@@ -13,8 +13,14 @@ const SheetTrigger = SheetPrimitive.Trigger;
 
 const SheetClose = SheetPrimitive.Close;
 
-const SheetPortal = ({ className, ...props }: SheetPrimitive.DialogPortalProps) => (
-  <SheetPrimitive.Portal className={cn(className)} {...props} />
+interface SheetPortalProps extends SheetPrimitive.DialogPortalProps {
+  className?: string;
+}
+
+const SheetPortal = ({ className, ...props }: SheetPortalProps) => (
+  <div className={cn(className)}>
+    <SheetPrimitive.Portal {...props} />
+  </div>
 );
 SheetPortal.displayName = SheetPrimitive.Portal.displayName;
 
