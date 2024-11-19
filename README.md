@@ -77,4 +77,3 @@ Package to create forms by drag and dropping elements. Started from [this projec
 - **`package.json`**: Project dependencies and scripts
 - **`tsconfig.json`**: TypeScript configuration
 - **`tailwind.config.js`**: Tailwind CSS configuration
-- **`next.config.js`**: Next.js configuration
